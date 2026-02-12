@@ -1,104 +1,28 @@
+
 <!DOCTYPE html>
-<html lang="mn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2сарын14нд Надтай болзох уу? 💕</title>
+    <title>Will you be my Valentine? 💕</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            text-align: center;
-            background: #ffe6f0;
-            margin: 0;
-            padding: 0;
-        }
-
-        .hearts-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://i.ibb.co/4pDNDk1/hearts-bg.png') repeat;
-            z-index: -1;
-            opacity: 0.3;
-        }
-
-        .container {
-            padding: 50px 20px;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            color: #ff3366;
-        }
-
-        .gif-container img {
-            width: 250px;
-            margin-bottom: 30px;
-        }
-
-        .buttons button {
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        #yes-btn {
-            background-color: #ff6699;
-            color: white;
-        }
-
-        #no-btn {
-            background-color: #cccccc;
-            color: #333;
-        }
-
-        .buttons button:hover {
-            transform: scale(1.1);
-        }
-
-        #tease-toast {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #ff3366;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        #music-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 1.5em;
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="hearts-bg"></div>
 
     <div class="container">
-        <h1>2сарын14нд Надтай болзох уу? 💕</h1>
+        <h1>Will you be my Valentine? 💕</h1>
 
         <div class="gif-container">
             <img id="cat-gif" src="https://media.tenor.com/EBV7OT7ACfwAAAAj/u-u-qua-qua-u-quaa.gif" alt="cute character">
         </div>
 
         <div class="buttons">
-            <button id="yes-btn" onclick="handleYesClick()">Тийм</button>
-            <button id="no-btn" onclick="handleNoClick()">Үгүй</button>
+            <button id="yes-btn" onclick="handleYesClick()">Yes</button>
+            <button id="no-btn" onclick="handleNoClick()">No</button>
         </div>
-
         <div id="tease-toast"></div>
     </div>
 
@@ -106,56 +30,8 @@
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Дууг асаах/унтраах">🔊</button>
+    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
 
-    <script>
-        const yesBtn = document.getElementById('yes-btn');
-        const noBtn = document.getElementById('no-btn');
-        const teaseToast = document.getElementById('tease-toast');
-        const bgMusic = document.getElementById('bg-music');
-
-        // Mongolian messages for pressing NO
-        const noMessages = [
-            "Итгэлтэй байна уу?😅",
-            "Гуйжийн🤗",
-            "Зөвшөөрөхгүй бол уйллаа шүү😥",
-            "Уйллаа шдээ😔",
-            "Зөндөө зөндөө гуйжийн🙏🙏🙏🙏"
-        ];
-
-        let noClickCount = 0;
-
-        function handleYesClick() {
-            teaseToast.innerText = "Эхлээд Үгүй гээд дараад үз 😉";
-            teaseToast.style.opacity = 1;
-
-            setTimeout(() => {
-                teaseToast.style.opacity = 0;
-            }, 2000);
-        }
-
-        function handleNoClick() {
-            teaseToast.innerText = noMessages[noClickCount];
-            teaseToast.style.opacity = 1;
-
-            noClickCount++;
-            if (noClickCount >= noMessages.length) {
-                noClickCount = 0; // Loop messages
-            }
-
-            setTimeout(() => {
-                teaseToast.style.opacity = 0;
-            }, 2000);
-        }
-
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play();
-            } else {
-                bgMusic.pause();
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
